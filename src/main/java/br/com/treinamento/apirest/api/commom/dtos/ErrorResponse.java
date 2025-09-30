@@ -1,7 +1,5 @@
 package br.com.treinamento.apirest.api.commom.dtos;
 
-import java.time.LocalDateTime;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,8 +12,5 @@ import lombok.NoArgsConstructor;
 public class ErrorResponse {
 
     private String message;
-
-    @Builder.Default
-    private LocalDateTime timestamp = LocalDateTime.now();
     
 }

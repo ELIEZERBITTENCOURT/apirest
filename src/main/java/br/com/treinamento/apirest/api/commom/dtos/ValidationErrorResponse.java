@@ -1,6 +1,5 @@
 package br.com.treinamento.apirest.api.commom.dtos;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -16,9 +15,6 @@ import lombok.NoArgsConstructor;
 public class ValidationErrorResponse {
 
     private String message;
-
-    @Builder.Default
-    private LocalDateTime timestamp = LocalDateTime.now();
 
     private Map<String, List<String>> errors;
     
