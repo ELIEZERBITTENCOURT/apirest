@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.treinamento.apirest.core.enums.JobLevel;
 import br.com.treinamento.apirest.core.enums.JobType;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -20,20 +21,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class JobRequest {
 
-    @NotEmpty
+    @NotBlank
     @Size(min = 5, max = 100)
-    private String title;
+    private String name;
 
-    @NotEmpty
-    @Size(min = 10, max = 255)
+    @NotBlank
+    @Size(min = 10, max = 500)
     private String description;
 
-    @NotEmpty
-    @Size(min = 3, max = 50)
-    private String company;
-
-    @NotEmpty
-    @Size(min = 3, max = 100)
+    @NotBlank
+    @Size(min = 5, max = 100)
     private String location;
 
     @NotNull
@@ -42,11 +39,10 @@ public class JobRequest {
     @NotNull
     private JobLevel level;
 
-    @NotNull
     @Positive
     private BigDecimal salary;
 
     @NotEmpty
-    private List<Long> skills;
+    private List<@NotBlank String> skills;
     
 }
