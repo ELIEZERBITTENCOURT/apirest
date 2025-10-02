@@ -3,7 +3,7 @@ package br.com.treinamento.apirest.api.companies.dtos;
 import java.util.UUID;
 
 import lombok.AllArgsConstructor;
-import lombok.builder;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
