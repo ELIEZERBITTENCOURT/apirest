@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "br.com.treinamento.apirest.jwt.secret",
+      "type": "java.lang.String",
+      "description": "Secret used to sign JWT tokens"
+    },
+    {
+      "name": "br.com.treinamento.apirest.jwt.expiration",
+      "type": "java.time.Duration",
+      "description": "Token expiration time"
+    }
+  ]
+}
