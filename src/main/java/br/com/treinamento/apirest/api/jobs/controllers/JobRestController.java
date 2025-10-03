@@ -31,7 +31,7 @@ public class JobRestController {
     }
     
     @PostMapping
-    @TWJobsPermissions.IsCompany
+    @JobsPermissions.IsCompany
     @ResponseStatus(code = HttpStatus.CREATED)
     public JobResponse create(@RequestBody @Valid JobRequest jobRequest) {
         return jobService.create(jobRequest);

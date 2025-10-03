@@ -24,14 +24,14 @@ public class JobApplicationRestController {
     private final JobApplicationService jobApplicationService;
 
     @PostMapping
-    @TWJobsPermissions.IsCandidate
+    @JobsPermissions.IsCandidate
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public void create(@PathVariable UUID id) {
         jobApplicationService.create(id);
     }
 
     @GetMapping
-    @TWJobsPermissions.IsCompanyOwnerOfJob
+    @JobsPermissions.IsCompanyOwnerOfJob
     public List<JobApplicationResponse> findAll(@PathVariable UUID id) {
         return jobApplicationService.findAll(id);
     }

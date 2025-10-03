@@ -4,7 +4,7 @@ import br.com.treinamento.apirest.core.exceptions.ModelAlreadyExistsException;
 
 public class CompanyNameAlreadyInUseException extends ModelAlreadyExistsException {
 
-    public CompanyNameAlredyInUseException() {
+    public CompanyNameAlreadyInUseException() {
         super("Company name already in use");
     }
 }
