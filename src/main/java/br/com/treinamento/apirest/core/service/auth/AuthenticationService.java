@@ -11,12 +11,12 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class AuthenticatedService implements UserDetailsService {
-    private final CompanyRepository companyRepository;
+public class AuthenticationService implements UserDetailsService {
+     private final CompanyRepository companyRepository;
     private final CandidateRepository candidateRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UserNameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         var company = companyRepository.findByEmail(username);
         if (company.isPresent()) {
             return AuthenticatedUser.builder()
@@ -27,7 +27,7 @@ public class AuthenticatedService implements UserDetailsService {
                 .build();
         }
 
-        var candidate = candidateRepository.findByemail(username);
+        var candidate = candidateRepository.findByEmail(username);
         if (candidate.isPresent()) {
             return AuthenticatedUser.builder()
                 .id(candidate.get().getId())
@@ -37,5 +37,7 @@ public class AuthenticatedService implements UserDetailsService {
                 .build();
         }
 
-        throw new UsernameNotFoundException("User not found with email: " + username);
+        throw new UsernameNotFoundException("User not found");
+    }
+    
 }

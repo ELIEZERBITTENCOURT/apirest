@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import br.com.treinamento.apirest.api.companies.dtos.CompanyRequest;
 import br.com.treinamento.apirest.api.companies.dtos.CompanyResponse;
 import br.com.treinamento.apirest.api.companies.mappers.CompanyMapper;
-import br.com.treinamento.apirest.core.exceptions.company.CompanyEmailAlredyInUseException;
-import br.com.treinamento.apirest.core.exceptions.company.CompanyNameAlredyInUseException;
+import br.com.treinamento.apirest.core.exceptions.company.CompanyEmailAlreadyInUseException;
+import br.com.treinamento.apirest.core.exceptions.company.CompanyNameAlreadyInUseException;
 import br.com.treinamento.apirest.core.exceptions.company.CompanyNotFoundException;
 import br.com.treinamento.apirest.core.repositories.CompanyRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,10 +25,10 @@ public class CompanyService {
 
     public CompanyResponse create(CompanyRequest companyRequest) {
         if (companyRepository.existsByEmail(companyRequest.getEmail())) {
-            throw new CompanyEmailAlredyInUseException();
+            throw new CompanyEmailAlreadyInUseException();
         }
         if (companyRepository.existsByName(companyRequest.getName())) {
-            throw new CompanyNameAlredyInUseException();
+            throw new CompanyNameAlreadyInUseException();
         }
 
         var company = companyMapper.toModel(companyRequest);

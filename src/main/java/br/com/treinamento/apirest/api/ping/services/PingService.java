@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class PingService {
     
     public Map<String, String> ping() {
-        return Map.of("message", "ping");
+        return Map.of("message", "pong");
     }
 
 }
